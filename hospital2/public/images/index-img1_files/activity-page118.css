@@ -1,0 +1,298 @@
+/* 幸运弹窗 */
+.xinyun-alert{display:block;width: 460px; height: 304px; background: #ffffff; box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.2); left: 0; top: 0; right:0;bottom:0;margin:auto; position: fixed; border-radius: 10px;z-index:101;}
+.xinyun-alert img{position: absolute; left: 104px; top: -25px;}
+.xinyun-alert .false{width: 25.2px; height: 25.2px; display: inline-block; position: absolute; color: #ff434e; cursor: pointer; top: 16.4px; right: 16.4px; background-repeat: no-repeat; font-size: 25px; transition: 0.3s;}
+.xinyun-alert .false:hover{transform: rotate(180deg);}
+.xinyun-alert h4{font-size: 20px; color: #333333; letter-spacing: 0; text-align: center; line-height: 32px; margin-top: 120px; margin-bottom: 6px;}
+.xinyun-alert .gift{font-size: 16px; color: #333333; letter-spacing: 0; text-align: center; line-height: 32px;}
+.xinyun-alert .gift .price{font-size: 30px; color: #000000; letter-spacing: 0; line-height: 32px; color: #ff434e;}
+.xinyun-alert .btn{display:block;width: 170px; height: 50px; background-image: linear-gradient(135deg, #ff9c8f 0%, #ff2d7b 100%); box-shadow: 0 10px 10px 0 #ffa9c5; margin: 0 auto; border-radius: 25px; text-align: center; line-height: 50px; font-size: 24px; color: #fff; margin-top: 25px; cursor: pointer; transition: 0.2s;}
+.xinyun-alert .btn:hover{margin-top: 28px; box-shadow: 0 0px 10px 0 #ffa9c5;}
+.xinyun-alert .day{position: absolute; right: 41px; bottom: 50px; color: #ff434e;}
+
+.LuckyExclusive-djs{
+    box-sizing: border-box;
+    width: 132px;
+    height: 130px;
+    background: url(//static.699pic.com/images/activity/LuckyEexclusive-float2.png) no-repeat 0 0;
+    position: fixed;
+    top: -457px;
+    bottom: 0;
+    left:50%;
+    z-index: 10;
+    font-size: 14px;
+     color: #800010;
+    margin:auto 0 auto -732px;
+    padding: 89px 0 0 55px;
+}
+
+.LuckyExclusive-djs.bottom{
+    top: auto;
+    bottom: 18%;
+}
+
+@media screen and (max-width:1366px ) {
+    .LuckyExclusive-djs{
+        margin:auto 0 auto -632px;
+    }
+    .qiyeAct-hot .NumberResults{display:none;}
+}
+.LuckyEexclusive-float{
+    position: absolute;
+    top: -93px;
+    right: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 55px;
+    height: 76px;
+    padding-top: 18px;
+    padding-right: 2px;
+    color: #fff;
+    font-size: 13px;
+    text-align: right;
+    background: url(//static.699pic.com/images/activity/LuckyEexclusive-float.png) no-repeat 0 0;
+}
+.LuckyEexclusive-float div{
+    font-size: 14px;
+    color: #FFF033;
+}
+
+/*新人礼包*/
+.NewGiftBag-pop{position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;z-index: 101;box-sizing:border-box;width: 502px;height: 446px;background: url(//static.699pic.com/images/activity/NewGiftBag-popbg.png) repeat scroll top left;font-size: 24px;color: #FF0000;padding: 353px 0 0 265px;}
+.NewGiftBag-pop.hides{animation-name: fadeInRightBig;animation-duration: 1s;animation-fill-mode: both;}
+.NewGiftBag-pop .icon-guanbi{position: absolute;top: 196px;right: 3px;line-height: 30px;border: 1px solid #fff;border-radius: 50%;width: 30px;height: 30px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg);cursor: pointer;transform: scale(0.8);}
+.NewGiftBag-pop .icon-guanbi:hover{transform: rotate(-180deg) scale(0.8);}
+.NewGiftBag-link{position: absolute;bottom: -1px;left: 0;right: 0;margin: auto;z-index: 2;display: block;width: 200px;height: 46px;font-size: 24px;color: #FF0000;line-height: 46px;text-align: center;background: #FFF033;box-shadow: 0 4px 0 0 #E6AD02;border-radius: 25px;}
+.NewGiftBag-link:hover{bottom: -4px;box-shadow: 0 1px 0 0 #E6AD02;}
+.NewGiftBag-float{position: absolute;right: 0;top: -115px;width: 60px;height: 110px;}
+.NewGiftBag-float .reightActivity-djs{position: absolute;width: 100%;text-align: center;top: 85px;padding-left: 8px;;font-size: 14px;color: #FFF033;text-shadow: 1px 1px 0 rgba(0,0,0,0.30);}
+/*摄图小兔优惠弹窗*/
+.shexiaotuAct-pop{position: fixed;top: 0;bottom: 0;right: 0;left: 0;z-index: 101;margin: auto;height: 323px;width: 458px;padding-left: 60px;animation-name: bounceInRight;animation-duration: 1s;animation-fill-mode: both;}
+    .shexiaotuAct-pop.hide{animation-name: fadeInRightBig; animation-duration: 1s; animation-fill-mode: both;}
+.shexiaotuAct-content{position: relative;z-index: 1;box-sizing: border-box;padding: 0 44px 0 24px;width: 458px;height: 323px;background: url(//static.699pic.com/images/activity/shexiaotuAct-pop.png) no-repeat 0 0;text-align: center;}
+.shexiaotuAct-title{padding-top: 127px;height: 99px;font-size: 30px;color: #FFFFFF;}
+.shexiaotuAct-btn{display: inline-block;width: 156px;height: 50px;line-height: 50px;font-size: 24px;color: #FF3E36;border-radius: 25px;background: #FFE67A;cursor: pointer;box-shadow: 0 4px 0 0 #E7AF26;transition: 0.2s;}
+.shexiaotuAct-btn:hover{margin-top: 3px;box-shadow: 0 1px 0 0 #E7AF26;}
+.shexiaotuAct-close{position: absolute;top: 114px;right: 0;z-index: 2;box-sizing: border-box;padding-left: 10px;width: 44px;height: 40px;border-radius: 0 20px 20px 0;color: #E68F8B;cursor: pointer;}
+.shexiaotuAct-close i{display: inline-block;line-height: 40px;font-size: 20px;transition: 0.3s;}
+.shexiaotuAct-hint{position: absolute;right: 77.5px;top:6px;z-index: 2;width: 192px;height: 40px;font-size: 16px;color: #FF3E36;text-align: center;line-height: 20px;}
+.shexiaotuAct-close:hover i{transform: rotate(180deg);}
+.shexiaotu-animation{position: absolute;top: -112px;left: -98px;width: 340px;height: 340px;background: url(//static.699pic.com/images/activity/shexiaotuAct-shexiaotu.png) no-repeat 0 0;animation:shexiaotuAnimation 2s infinite ease-in ;-webkit-animation-timing-function: step-start;animation-timing-function: step-start;}
+@keyframes shexiaotuAnimation{
+    /*1*/0%{background-position:0 0;}
+    /*2*/7%{background-position:-340px 0;}
+    /*1*/14%{background-position:0 0;}
+    /*3*/28%{background-position:-680px 0;}
+    /*1*/35%{background-position:0 0;}
+    /*2*/42%{background-position:-340px 0}
+    /*1*/49%{background-position:0 0;}
+    /*3*/56%{background-position:-680px 0;}
+    /*1*/63%{background-position:0 0;}
+    /*1*/70%{background-position:0 0;}
+    /*4*/76%{background-position:-1020px 0;}
+    /*5*/82%{background-position:-1360px 0;}
+    /*4*/91%{background-position:-1020px 0;}
+    /*5*/98%{background-position:-1360px 0;}
+    /*1*/100%{background-position:0 0;}
+}
+@keyframes bounceInRight{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}
+0%{opacity:0;transform:translate3d(3000px,0,0)}
+60%{opacity:1;transform:translate3d(-25px,0,0)}
+75%{transform:translate3d(10px,0,0)}
+90%{transform:translate3d(-5px,0,0)}
+to{transform:none}}
+
+/*元宵活动*/
+.yuanxiao-pop{position: fixed;left: 0;bottom: 0;top: 0;right: 0;box-sizing: border-box;margin: auto;z-index: 101;width: 575px;height: 349px;background: url(//static.699pic.com/images/activity/yuanxiao-pop.png) repeat scroll top left;}
+.yuanxiaoPop-top{position: absolute;top: 2px; right: 81px;width: 1.5px;height: 50.2px;background: #FFDE26;}
+.yuanxiaoPop-top .yuanxiaoPop-close{position: absolute;top: -33px;left: -15px;width: 32px;height: 32px;text-align: center;line-height: 32px;font-size: 15px;color: #FFDE26;border: 1px solid #FFDE26;border-radius: 50%;cursor: pointer;transition: 0.3s;}
+.yuanxiaoPop-top .yuanxiaoPop-close:hover{transform: rotate(180deg);}
+.yuanxiaoPop-btn{position: absolute;bottom: 14px;right: 150px;width: 156px;height: 50px;line-height: 50px;text-align: center;font-size: 24px;border-radius: 25px;color: #FFFFFF;background: #E4001B;box-shadow: 0 4px 0 0 #B00016;}
+.yuanxiaoPop-btn:hover{bottom: 11px;box-shadow: 0 1px 0 0 #B00016;}
+.yuanxiao-pop.hide{animation-name: fadeInRightBig; animation-duration: 1s; animation-fill-mode: both;}
+
+
+/*自动抽奖滚动弹窗样式*/
+.springtime-gomePop{display: none;position: fixed;left: 0;right: 0;top: -50px;bottom: 0;margin: auto;z-index: 101;box-sizing: border-box;padding: 227px 0 0 113px;width: 589px;height: 496px;background: url(//static.699pic.com/images/activity/vipStation39-popbg.png) no-repeat 0 0;animation: winAlertIn .4s;}
+.springtime-gomePop:before{content: '';position:absolute;top: 10px;right: 73px;height: 28px;width: 2px;background: #fff;opacity: 0.8;}
+.springtime-gomePop .icon-guanbi{position: absolute;top: -20px;right: 58px;line-height: 30px;border: 1px solid #fff;border-radius: 50%;width: 30px;height: 30px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg) scale(0.95);cursor: pointer;}
+.springtime-gomePop .icon-guanbi:hover{transform: rotate(180deg) scale(0.95);}
+.present-block{width: 320px;height: 146px;background: url(//static.699pic.com/images/activity/vipStation39-liping.png) repeat 0 0;animation: scl 19s cubic-bezier(.49,.14,.50,1) forwards;-webkit-animation: scl 19s cubic-bezier(.49,.14,.50,1) forwards;transform: translateZ(0);}
+.present-block.on{animation: scl2 5s ease-out forwards;-webkit-animation: scl2 5s ease-out forwards;-ms-animation: scl2 5s ease-out forwards;}
+@-webkit-keyframes scl{0%{background-position: 0 18px;}100%{background-position: 0 -1662px;}}
+@-ms-keyframes scl{0%{background-position: 0 18px;}100%{background-position: 0 -1662px;}}
+@keyframes scl{0%{background-position: 0 18px;}100%{background-position: 0 -1662px;}}
+@-webkit-keyframes scl2{0%{background-position: 0 18px;}100%{background-position: 0 -2862px;}}
+@-ms-keyframes scl2{0%{background-position: 0 18px;}100%{background-position: 0 -2862px;}}
+@keyframes scl2{0%{background-position: 0 18px;}100%{background-position: 0 -2862px;}}
+.gomePop-btn{display: block;box-sizing: border-box;padding-top: 10px;width: 320px;height: 64px;margin-top: 45px;background-image: linear-gradient(-180deg, #FEEF53 4%, #FF7300 100%);box-shadow: 0 4px 0 0 #761900;border-radius: 32px;font-size: 32px;color: #D00000;letter-spacing: 2.13px;text-align: center;transition:box-shadow 0.2s,transform 0.2s;}
+.gomePop-btn.start{cursor: pointer;padding-top: 4px;}
+.gomePop-btn.start:hover{box-shadow: 0 1px 0 0 #761900;transform: translateY(2px);}
+.gomePop-btn span{position: relative;top: -4px;display: block;font-size: 12px;color: #fff;}
+/* 老虎机样式 */
+.game_wrap{width: 431px;height: 170px;box-sizing: content-box;overflow: hidden;margin: 221px 0 0 123px;}
+.game_wrap .game_item{height: 170px;width: 130px;float: left;margin-right: 10px;}
+.game_wrap .game_item li{height: 170px;width: 130px;text-align: center;position: relative;}
+.game_wrap .game_item li.gift0 i{background-position: 0 0px;}
+.game_wrap .game_item li.gift1 i{background-position: 0 -140px;}
+.game_wrap .game_item li.gift2 i{background-position: 0 -280px;}
+.game_wrap .game_item li.gift3 i{background-position: 0 -420px;}
+.game_wrap .game_item li.gift4 i{background-position: 0 -560px;}
+.game_wrap .game_item li.gift5 i{background-position: 0 -700px;}
+.game_wrap .game_item li.gift6 i{background-position: 0 -840px;}
+.game_wrap .game_item li.gift7 i{background-position: 0 -980px;}
+.game_wrap .game_item li.gift8 i{background-position: 0 -1120px;}
+.game_wrap .game_item li.gift9 i{background-position: 0 -1260px;}
+.game_wrap .game_item li i{float: left;margin-top: 15px;width: 140px;height: 140px;background: url(//static.699pic.com/images/activity/vipStation34-liping.png) no-repeat;}
+.springtime-pop .game_sessions{position: absolute;right: 82px;top: 327px;font-size: 28px;color: #FFF;}
+/* 换肤活动倒计时 */
+.springtime-djs{box-sizing: border-box;width: 132px;height: 95px;background: url(//static.699pic.com/images/activity/vipStation30-djs.png) no-repeat center;position: fixed;top: -457px;bottom: 0;left:50%;z-index: 10;font-size: 16px;color: #008BFF;margin:auto 0 auto -717px;padding-top: 66px;text-align:center;transform: scale(0.7);letter-spacing:0.5px;}
+.springtime-djs.bottom{top: auto;bottom: 18%;}
+.springtime-djs.the{bottom: 41%;}
+/* 换肤活动右侧边栏 */
+.springtime-floatLink{display: none;position: fixed;top: 13%;right: 65px;width: 172px;height: 162px;z-index: 100;}
+.springtime-floatLink .coverImg{position:relative;display:block;width: 172px;height: 162px;box-sizing: border-box;font-size: 14px;color: #FF0018;}
+.springtimeDjs{position:absolute;bottom: 23px;left: 82px;font-size: 14px;text-align:center;color: #850E0F;letter-spacing: 0.88px;}
+@keyframes springtimeAniamt2 {0%{transform: translateY(0)}50%{transform: translateY(-12px)}100%{transform: translateY(0)}}
+@keyframes bounce{0%{transform: scale(1)}50%{transform: scale(0.9)}100%{transform: scale(1)}}
+
+.springtime-floatLink a{display: block;width: 100%;color:#fff;font-size: 14px;box-sizing: border-box;text-align:center;}
+.springtime-floatLink .iconfont{position: absolute;top: -6px;right: 4px;background: rgba(0,0,0,0.30);font-size: 12px;cursor: pointer;width: 24px;height: 24px;line-height: 26px;text-align:center;border-radius:50%;color:#fff;transform: scale(0.9);transition: 0.3s;}
+.springtime-floatLink .iconfont:hover{transform:scale(0.9) rotate(180deg);}
+@media screen and (max-width:1770px){
+   .springtime-floatLink{-webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+       -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+           transform: scale(0.8);
+           right: 32px;}
+}
+@media screen and (max-width:1500px){
+   .springtime-floatLink{-webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+       -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+           transform: scale(0.7);
+           right: 25px;}
+    .springtime-bottom{
+            transform-origin: bottom;
+            transform: scale(0.8);
+    }
+}
+/* 换肤活动底部banner */
+.springtime-bottom{display:none;position: fixed;left: 50%;bottom: -1px;margin-left: -395.5px;z-index: 101;width: 791px;height: 118px;margin-bottom: 1px;}
+.springtime-bottom .activity-img{display:block;height:145px;background: url(//static.699pic.com/images/activity/vipStation34-bottom.png) no-repeat center top;transform: translateZ(0);transition:none;}
+.springtime-bottom .icon-guanbi{position: absolute;width: 22px;height: 22px;line-height: 22px;background: rgba(0,0,0,.3);text-align: center;color: #fff;top: -14px;right: -18px;border-radius: 50%;font-size: 10px;cursor: pointer;z-index: 1;transition: .2s;}
+.springtime-bottom .icon-guanbi:hover{transform: rotate(180deg);}
+.user-xialaBlock .xialaActivity-link{margin-bottom: -8px !important;}
+// @media screen and (max-width: 1366px){.springtime-bottom{transform: scale(0.7);transform-origin: left bottom;}}
+/*企业VIp活动*/
+.reightActivity-flost{position: absolute;right: 0;top: -115px; width: 60px; height: 110px;}
+.springtime-pop2.hides{animation-name: fadeInRightBig; animation-duration: 1s; animation-fill-mode: both;}
+.springtime-pop2{position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;z-index: 101;width: 485px;height: 489px;background: url(//static.699pic.com/images/activity/springtimeQuanzhan-popbg.png) no-repeat 0 0;text-align: center;}
+.springtime-pop2 .icon-guanbi{position: absolute;top: 86px;right: -27px;line-height: 30px;border: 1px solid #fff;border-radius: 50%;width: 30px;height: 30px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg) scale(0.9);cursor: pointer;z-index: 2;}
+.springtime-pop2 .icon-guanbi:hover{transform: rotate(-180deg);}
+.springtime-pop2 .springtime-Link{display: inline-block;width: 240px;height: 60px;margin-top:400px;border-radius:30px;font-size: 34px;color: #FE5200;line-height: 60px;text-align:center;background: #FFF033;box-shadow: 0 5px 0 0 #E69E19;}
+.springtime-pop2 .springtime-Link:hover{transform: translateY(3px);box-shadow: 0 2px 0 0 #E69E19;}
+.user-xialaBlock .xialaActivity-link{margin-bottom: -8px !important;}
+/*幸运兔*/
+.LuckyRabbit-pop{position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;z-index: 101;width: 533px;height: 312px;}
+.LuckyRabbit-pop.hides{animation-name: fadeInRightBig;animation-duration: 1s;animation-fill-mode: both;}
+.shexiaotu-animation{position: absolute;top: -101px;left: 51px;width: 340px;height: 340px;background: url(//static.699pic.com/images/activity/LuckyRabbit-tu.png) no-repeat 0 0;animation:shexiaotuAnimation 2s infinite ease-in ;-webkit-animation-timing-function: step-start;animation-timing-function: step-start;}
+.LuckyRabbit-popbg{position: relative;z-index: 1;box-sizing: border-box;width: 533px;height: 312px;padding: 155px 10px 0 0;text-align: center;background: url(//static.699pic.com/images/activity/LuckyRabbit-pop.png) no-repeat center;font-size: 18px;color: #FFFFFF;}
+.LuckyRabbit-pop .icon-guanbi{position: absolute;top: -23px;right: 48px;z-index:2;transform:scale(0.9);line-height: 30px;border: 2px solid #FFE67A;border-radius: 50%;width: 30px;height: 30px;color: #FFE67A;text-align: center;transition: 0.3s;transform: rotate(0deg);cursor: pointer;}
+.LuckyRabbit-pop .icon-guanbi:hover{transform: rotate(180deg);}
+.LuckyRabbit-Link{position: absolute;bottom: -58px;left: 0;right: 0;margin: auto;z-index: 2;display: block;width: 220px;height: 50px;font-size: 28px;color: #ED1C28;line-height: 50px;text-align: center;background: #FFE67A;box-shadow: 0 4px 0 0 #FFAE00;border-radius: 25px;}
+.LuckyRabbit-Link:hover{bottom: -61px;box-shadow: 0 1px 0 0 #FFAE00;}
+.LuckyRabbit-flost{position: absolute;right: 0;top: -115px;width: 60px;height: 110px;}
+.LuckyRabbit-flost .reightActivity-djs{position: absolute;width: 100%;text-align: center;top: 83px;font-size: 12px;color: #FFFFFF;}
+/*企业活动下拉*/
+.EnterpriseUserUp-xiala{display:block !important;position: absolute;left: 0;top: 0;width: 100%;height: 100%;}
+.EnterpriseUserUp-xiala.bg1{background: url(//static.699pic.com/images/activity/EnterpriseUserUp-floating.png) no-repeat center;}
+.EnterpriseUserUp-xiala.bg2{background: url(//static.699pic.com/images/activity/EnterpriseUserUp-floating2.png) no-repeat center;}
+.EnterpriseUserUp-xiala.bg3{background: url(//static.699pic.com/images/activity/EnterpriseUserUp-floating3.png) no-repeat center;background-size: cover;}
+.EnterpriseUserUp-xiala a{display: block;margin: 155px auto 0;width: 282px;height: 48px;text-align: center;line-height: 48px;background: #ffc013;color: #222222;border-radius: 30px;font-size: 30px;}
+.EnterpriseUserUp-xiala a:hover{background: #ffce46;}
+/*企业活动*/
+.EnterpriseUserUp-bottom.hides{animation-name: fadeInRightBig; animation-duration: 1s; animation-fill-mode: both;}
+.EnterpriseUserUp-bottom{position: fixed;left: 0;right: 0;bottom: -1px;margin: auto;z-index: 101;width: 100%;height: 223px;margin-bottom: 1px;}
+.EnterpriseUserUp-bottom .activity-img{display:block;height:100%;background: url(//static.699pic.com/images/activity/EnterpriseUserUp-bottom1.png) no-repeat center top;transform: translateZ(0);}
+.EnterpriseUserUp-bottom .activity-img2{display:block;height:100%;background: url(//static.699pic.com/images/activity/EnterpriseUserUp-bottom2.png) no-repeat center top;}
+.EnterpriseUserUp-bottom .icon-guanbi{position: absolute;top: 103px;right: 50%;margin-right:-600px;line-height: 40px;background: rgba(245,246,249,0.5);border-radius: 50%;width: 40px;height: 40px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg);cursor: pointer;z-index: 1;}
+.EnterpriseUserUp-bottom .icon-guanbi:hover{transform: rotate(180deg);}
+/* 45期换肤活动 */
+.active45-pop {width: 518px;height: 350px;background: #E65452;border-radius: 20px;position: fixed;left: 50%;top: 50%;margin-top: -174px;margin-left: -259px;z-index: 999;box-sizing: border-box;padding-top: 20px;animation: winAlertIn .4s;display: none;}
+.active45-pop.hides{animation: fadeInRightBig 1s both;-webkit-animation:fadeInRightBig 1s both;}
+.close-btn45{position: absolute; display: inline-block;right: 20px;top: 20px;line-height: 30px;width: 30px;text-align:center;height: 30px;font-size: 26px; color: #ffffff;transition: 0.2s; transform: rotate(0deg);cursor: pointer;}
+.close-btn45:hover{transform: rotate(180deg);}
+.active45-title {font-size: 30px;color: #FFFFFF;height: 42px;line-height: 42px;margin-bottom: 30px;text-align: center;}
+.active45-main {height: 98px;width: 336px;margin: 0 auto 23px;}
+.active45-award {height: 98px;width: 125px;float: left;background-image: linear-gradient(270deg, #FFD725 0%, #FFF076 100%);border-radius: 10px;text-align: center;box-sizing: border-box;padding-top: 11px;}
+.active45-award1 {background: url(//static.699pic.com/images/activity/vipStation45-pop-tips.png) no-repeat;padding-top: 0;}
+.active45-plus {float: left;margin: 0 30px;color: #ffffff;font-size: 26px;line-height: 98px;height: 98px;}
+.active45-item1-title {font-size: 14px;color: #FF0000;line-height: 46px;height: 52px;margin-bottom: -1px;}
+.active45-item1-title span {font-size: 40px;vertical-align: -18px;margin-left: -2px;}
+.active45-item1-desc {font-size: 16px;color: #FF0000;line-height: 20px;}
+.active45-award i {width: 52px;height: 52px;background: url(//static.699pic.com/images/activity/vipStation45-pop-tips.png) no-repeat;background-position: -136px 0;display: block;margin: 0 auto 3px;}
+.active45-item2-desc {font-size: 17px;color: #FF0000;line-height: 25px;}
+.active45-time {text-align: center;font-size: 16px;color: #FFFFFF;margin-bottom: 23px;}
+.active45-time span {font-size: 20px;color: #FFF500;vertical-align: -2px}
+.active45-time i {color:#FFF500;font-style: normal;}
+.active45-submit {width: 200px;height: 56px;background: #FFCC00;border: 4px solid #FFB400;border-radius: 33px;display: block;margin: 0 auto;box-sizing: border-box;font-size: 24px;color: #FF0000;letter-spacing: 1.33px;text-align: center;line-height: 48px;transition: 0.2s;}
+.active45-submit:hover {background: #FFB400;}
+/* 50期侧边 */
+.springtime-floatLink118{display:none;width: 157px;height:auto;}
+.springtime-floatLink118 a{width: 100%;height: 113px;position: relative;top: 5px;right: 5px;}
+.springtime-floatLink118 .flipper{width: 100%;height: 100%;transition:transform 0.6s ease-out;transition: transform .5s ease-in-out;-webkit-transition: transform .5s ease-in-out;-moz-transition: transform .5s ease-in-out;-ms-transition: transform .5s ease-in-out;-o-transition: transform .5s ease-in-out;-webkit-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-ms-transform-style: preserve-3d;-o-transform-style: preserve-3d;transform-style: preserve-3d;display:block;position: relative;animation: turnOut_actSpTips linear infinite 3.8s;-webkit-animation: turnOut_actSpTips linear infinite 3.8s;}
+.springtime-floatLink118 .offline-front,.springtime-floatLink118  .offline-back{backface-visibility: hidden;transition: 0.6s ease-out;-webkit-transition: .6s ease-out;-webkit-transform-style: preserve-3d;-moz-transform-style: preserve-3d;-ms-transform-style: preserve-3d;-o-transform-style: preserve-3d;transform-style: preserve-3d;position: absolute;top: 0;left: 0;box-sizing: border-box;width: 100%;height: 100%;}
+.springtime-floatLink118 .offline-front{z-index: 2;transform: rotateY(0deg);transform: rotateY(0deg);-webkit-transform: rotateY(0deg);-moz-transform: rotateY(0deg);-ms-transform: rotateY(0deg);-o-transform: rotateY(0deg);background: url(//static.699pic.com/images/activity/vipStation118-float.png) no-repeat -6px -6px;}
+.springtime-floatLink118 .offline-back{z-index:1;transform: rotateY(-180deg);-webkit-transform: rotateY(-180deg);-moz-transform: rotateY(-180deg);-ms-transform: rotateY(-180deg);-o-transform: rotateY(-180deg);background: #fff;text-align: center;font-size: 24px;font-weight: 900;color: #000000;display: flex;align-items: center;justify-content: center;background: url(//static.699pic.com/images/activity/vipStation118-float.png) no-repeat -185px -6px;}
+.springtime-floatLink118 .LastDay .offline-front{background-position: -6px -140px;}
+.springtime-floatLink118 .LastDay .offline-back{background-position: -185px -140px;}
+.springtime-floatLink118 .springtimeDjs{position: absolute;left: 0;right: -13px;bottom: -3px;margin:auto;height: 18px;width: 89px;box-sizing:border-box;font-size: 12px;color: #ffffff;line-height: 18px;letter-spacing: 0.3px;border-radius: 9px;background-image: linear-gradient(135deg, #FF945F 0%, #FF4D00 100%);box-shadow: 0 0 18px 0 rgba(178,42,0,0.30);}
+.springtime-floatLink118 .springtimeDjs span{font-size:14px;vertical-align: -1px;}
+@-webkit-keyframes turnOut_actSpTips{0%{transform: rotateY(0deg);}5%{transform: rotateY(-280deg);}10%{transform: rotateY(-540deg);}50%{transform: rotateY(-540deg);}55%{transform: rotateY(-260deg);}60%{transform: rotateY(-0deg);}100%{transform: rotateY(-0deg);}}
+@keyframes turnOut_actSpTips{0%{transform: rotateY(0deg);}10%{transform: rotateY(-180deg);}50%{transform: rotateY(-180deg);}60%{transform: rotateY(-360deg);}100%{transform: rotateY(-360deg);}}
+.reightActivity-flost{position: absolute;right: 0;top: -115px; width: 60px; height: 110px;}
+.springtime-pop.hides{animation: fadeInRightBig 1s both;-webkit-animation:fadeInRightBig 1s both;}
+.springtime-pop:before{content: '';position:absolute;top: 16px;right: 42px;height: 28px;width: 2px;background: #fff;opacity: 0.8;}
+.springtime-pop{position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;z-index: 101;width: 709px;height: 553px;background: no-repeat 0 0;text-align: center;}
+.springtime-pop .icon-guanbi{position: absolute;top: -13px;right: 27px;line-height: 30px;border: 1px solid #fff;border-radius: 50%;width: 30px;height: 30px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg) scale(0.9);cursor: pointer;}
+.springtime-pop .icon-guanbi:hover{transform: rotate(180deg)  scale(0.9);}
+
+.shexiaotu-bottom-l {position: fixed;left: 0;bottom: 0;z-index: 10;width: 214px;}
+.shexiaotu-bottom-l .icon-guanbi{position: absolute;width: 22px;height: 22px;transform: scale(0.9);line-height: 22px;background: rgba(0,0,0,.2);text-align: center;color: #fff;top: 85px;right: 37px;border-radius: 50%;font-size: 10px;cursor: pointer;z-index: 1;transition: .2s;}
+.shexiaotu-bottom-l .icon-guanbi:hover{transform: rotate(180deg) scale(0.9);}
+.shexiaotu-bottom-l a {display:block;height:254px;background: url(//static.699pic.com/images/activity/vipStation200-shexiaotu.png) no-repeat center top;transform: translateZ(0);transition:none;}
+
+
+.springtime-Link{position:absolute;bottom: -94px;left: 0px;right:0;margin:auto;display: inline-block;width: 320px;height: 64px;font-size: 36px;color: #FFFF69;line-height: 60px;text-align:center;background-image: linear-gradient(-180deg, #FF4B5C 0%, #EB0016 100%);box-shadow: 0 4px 0 0 #7A0000;border-radius: 32px;}
+.springtime-Link:hover{transform: translateY(3px);box-shadow: 0 2px 0 0 #7A0000;}
+/*办公首页活动*/
+.work-activity{width: 612px;height: 392px;background: url(//static.699pic.com/images/activity/bangong-popbg.png) no-repeat ;position: fixed;left: 0;right: 0;top: 0;bottom:0;margin: auto;z-index: 101;box-sizing: border-box;text-align: center;}
+.work-activity.hides{animation-name: fadeInRightBig; animation-duration: 1s; animation-fill-mode: both;}
+.work-activity .icon-guanbi{position: absolute; display: inline-block;right:138px;top:122px;line-height: 23px; border: 1px solid #ffffff; border-radius: 50%;width: 23px;text-align:center;height: 23px;font-size: 12px; color: #ffffff;transition: 0.2s; transform: rotate(0deg);cursor: pointer;}
+.work-activity .icon-guanbi:hover{transform: rotate(180deg);}
+.work-activity p{margin: 199px 0 0 188px;width: 225px;height: 54px;line-height: 54px;font-size: 38px;color: #fff;}
+.work-activity p span{margin: 0 -1px;letter-spacing: 9.13px;}
+.work-activity a{display: inline-block;width: 162px;height: 50px;line-height: 41px;font-size: 26px;color: #FE5200;margin-top: 40px;margin-left: -18px;}
+.work-activity a:hover{color:#e84b00;}
+.sideBangong-activity{position: absolute; top: -113px; width: 100%; text-align: center;}
+.sideBangong-activity a{display: inline-block;box-sizing: border-box;padding:42px 2px 0 10px ;margin-left: -25px;width: 60px;height: 110px;background: url('//static.699pic.com/images/activity/bangong-float.png') no-repeat;color: #fff;font-size: 13px;text-align: end;line-height: 15px;}
+.sideBangong-activity a p{color: #fff;font-size: 14px;line-height: 15px;}
+
+/*换肤活动弹窗52*/
+.springtime-pop118.hides{animation: fadeInRightBig 1s both;-webkit-animation:fadeInRightBig 1s both;}
+.springtime-pop118:before{content: '';display:none;position:absolute;top: 50px;right: 97px;height: 28px;width: 2px;background: #fff;opacity: 0.8;}
+.springtime-pop118{display:none;position: fixed;left: 0;right: 0;top: -40px;bottom: 0;margin: auto;z-index: 101;width: 468px;height: 316px;background:url(//static.699pic.com/images/activity/vipStation118-popbg.png) no-repeat 0 0;box-sizing: border-box;padding: 244px 0 0 97px;text-align: left;font-size: 16px;color: #ffffff;animation: winAlertIn .4s;}
+.springtime-pop118 p{font-size: 20px;display: inline-block;color: #ffffff;margin-left: -3px;vertical-align: -1.5px;}
+.springtime-pop118 p i{font-style:normal;}
+.springtime-pop118 .icon-guanbi{position: absolute;top: 45px;right: 3px;line-height: 30px;border: 1.5px solid #fff;border-radius: 50%;width: 30px;height: 30px;color: #fff;text-align: center;transition: 0.3s;transform: rotate(0deg);cursor: pointer;}
+.springtime-pop118 .icon-guanbi:hover{transform: rotate(180deg);}
+
+.springtime-pop118 .springtime-Link{position:absolute;bottom: -32px;left: 0;right: 15px;margin: auto;display: inline-block;width: 180px;height: 50px;line-height: 50px;border-radius: 40px;font-size: 20px;color: #FF4D00;background: #FFDC41;box-shadow: 0 4px 0 0 #F1B600;cursor: pointer;transition:0.2s;letter-spacing: 1px;}
+.springtime-pop118 .springtime-Link:hover{transform: translateY(3px);box-shadow: 0 2px 0 0 #F1B600;}
+.rotatebg{display:none;position: fixed;top: 0;right: 75px;bottom: 0;left: 0;margin: auto;z-index: 100;width: 954px;height: 967px;transform: scale(0.85);background: url(//static.699pic.com/images/activity/red_light.png) no-repeat 0 0;animation: actBg-rotate 10s linear infinite;}
+@keyframes actBg-rotate{0%{transform:rotate(0deg) scale(0.85);-ms-transform:rotate(0deg) scale(0.85);-moz-transform:rotate(0deg) scale(0.85);-webkit-transform:rotate(0deg) scale(0.85);-o-transform:rotate(0deg) scale(0.85);}
+100%{transform:rotate(360deg) scale(0.85);-ms-transform:rotate(360deg) scale(0.85);-moz-transform:rotate(360deg) scale(0.85);-webkit-transform:rotate(360deg) scale(0.85);-o-transform:rotate(360deg) scale(0.85);}}
+@keyframes actBg-scale{0%{transform: scale(0.3);}100%{transform: scale(0.85);}}

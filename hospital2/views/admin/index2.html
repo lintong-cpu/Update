@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8 lt9 lt10"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 lt10"><![endif]-->
+<!--[if (gt IE 9) | !(IE)]><!-->
+<html>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="author" content="www.fractal-technology.com">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="京都儿童医院" />
+<meta name="description" content="京都儿童医院" />
+<title>医院</title>
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<link rel="stylesheet" type="text/css" href="css/lyc.css">
+<link rel="stylesheet" type="text/css" href="css/slick.css">
+<link rel="stylesheet" type="text/css" href="css/page.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/global.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.mcustomscrollbar.css">
+<script src="js/jquery.mcustomscrollbar.min.js"></script>
+<script src="js/slick.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<!--[if IE 8]><script type="text/javascript" src="js/pie_ie678.js"></script><![endif]-->
+</head>
+
+<body>
+<link href="css/global_1.css" rel="stylesheet" type="text/css" />
+<div id="myalert-shadow" class="myalert-shadow"></div>
+<div id="myalert" class="dev-alert">
+  <div id="my_alert" class="inner"> 
+    <!-- <a href="javascript:;" onclick="myalert_hide();" class="guan"></a> -->
+    <h1></h1>
+    <div class="btns"><a id="my_ok" href="javascript:void(0);" class="button ok">确定</a></div>
+  </div>
+</div>
+<script type="text/javascript">
+
+    function my_alert( title, url) {
+        $('#myalert, #myalert-shadow').show();
+        $('#myalert .inner h1').html(title);
+        if(url){
+            $('#my_ok').click(function(){
+                if (typeof(url) == 'function') {
+                    url();
+                    return false;
+                }else{
+                    window.location.href=url;
+                }
+                
+            });
+        }else{
+            $('#my_ok').click(function(){
+                $('#myalert, #myalert-shadow').hide();
+            });
+        }
+    }
+    function myalert_hide(){
+        $('#myalert, #myalert-shadow').hide();
+    }
+</script>
+
+<div class="header"><a href="javascript:;" class="menu_h"><span>Menu</span></a>
+  <div class="top">
+    <div class="wrap"><a href="#" >科室导航</a> <a href="#" >专家组</a> <a href="/" class="on">首页</a> </div>
+  </div>
+  <div class="nav">
+    <div class="wrap cf">
+      <div class="logo"><a href="#"> <img title="北京协和医院" alt="" src="images/logo.png"> </a></div>
+      <div class="navList">
+        <ul class="cf">
+          <li> <a href="#" class="one">首页</a> </li>
+          <li> <a href="#" class="one">栏目板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">栏目板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">栏目板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">栏目板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">栏目板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">板块<span class="open">+</span></a>
+            <div class="secondNav"> 
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a>
+            <a href="#">列表板块</a> 
+            </div>
+          </li>
+          <li> <a href="#" class="one">联系我们</a> </li>
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+<input type="hidden" id="catebynav" value="/patient"/>
+<script>
+    $(function(){
+        var now  = ($('#catebynav').val() && $('#catebynav').val() != 'javascript:void(0);' ) ? $('#catebynav').val() : window.location.pathname;
+        var href = '';
+        var hrefOver = '';
+        $('.header .navList ul li').each(function(index){
+            var _this = $(this);
+            href = _this.children('a').attr('href');
+            hrefOver = href.replace(now, '');
+            if(!hrefOver){
+                hrefOver = '.html';
+            }
+            if( href.indexOf(now) > -1 && hrefOver == '.html' ){
+                _this.addClass('on');
+                return false;
+            } else {
+                if(_this.find('.secondNav a').size() > 0){
+                    _this.find('.secondNav a').each(function(i){
+                        href = $(this).attr('href');
+                        hrefOver = href.replace(now, '');
+                        if(!hrefOver){
+                            hrefOver = '.html';
+                        }
+                        if( href.indexOf(now) > -1 && hrefOver == '.html' ){
+                            _this.addClass('on');
+                            return false;
+                        }
+                    })
+                }
+            }
+        })
+    })
+</script>
+<div class="body_box">
+  <div class="ind_banner cf">
+    <div class="index_1" style="background:url(images/banner1.jpg) no-repeat center"> 
+      <div class="wrap">
+        <div class="tit">
+          <p><a href="/enter/login" target="_blank"><img src="images/logoko2.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-ybzx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-zxwz.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-jdsc.png"></a></p>
+        </div>
+      </div>
+     </div>
+    <div class="index_1" style="background:url(images/banner1.jpg) no-repeat center">
+      <div class="wrap">
+      <div class="tit">
+          <p><a href="#" target="_blank"><img src="images/sy-jydx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-ybzx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-zxwz.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-jdsc.png"></a></p>
+        </div>
+      </div></div>
+    <div class="index_1" style="background:url(images/banner1.jpg) no-repeat center">
+      <div class="wrap">
+      <div class="tit">
+          <p><a href="#" target="_blank"><img src="images/sy-jydx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-ybzx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-zxwz.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-jdsc.png"></a></p>
+        </div>
+      </div></div>
+    <div class="index_1" style="background:url(images/banner1.jpg) no-repeat center"> 
+      <div class="wrap">
+      <div class="tit">
+          <p><a href="#" target="_blank"><img src="images/sy-jydx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-ybzx.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-zxwz.png"></a></p>
+          <p><a href="#" target="_blank"><img src="images/sy-jdsc.png"></a></p>
+        </div>
+      </div>
+      </div>
+  </div>
+  <div class="banner-nav">
+    <ul>
+      <li><a href="#" target="_blank"><span><img src="images/br-nav1.png"></span>医保定点单位</a></li>
+      <li><a href="#" target="_blank"><span><img src="images/br-nav2.png"></span>三级医院</a></li>
+      <li><a href="#" target="_blank"><span><img src="images/br-nav3.png"></span>急救中心</a></li>
+      <li><a href="#" target="_blank"><span><img src="images/br-nav4.png"></span>24小时急诊</a></li>
+    </ul>
+  </div>
+  <div class="wrap">
+    <div class="index_4"> 
+      <!--<h2 class="title_h2">科室导航</h2>-->
+      <div class="ind_4_cont cf">
+        <div class="img ratio-img" data-ratio="0.735"> <a href="#" target="_blank" class="tan_scale a"> <img title="" src="" title="" title="" alt="">
+          <div class="tit">
+            <div class="con">
+              <p></p>
+            </div>
+          </div>
+          </a> </div>
+        <div class="r">
+          <div class="tabClick cf"> <a href="javascript:;" class="a1">全部科室<i></i></a> <a href="javascript:;" class="a2">内科<i></i></a> <a href="javascript:;" class="a3">外科<i></i></a> <a href="javascript:;" class="a4">其他<i></i></a> </div>
+          <div class="i4-list">
+            <div class="child cf">
+              <ul>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、3..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、3..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、3..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                
+              </ul>
+            </div>
+            <div class="child cf">
+              <ul>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、4..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、5..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>内科学系</a> </li>
+              </ul>
+            </div>
+            <div class="child cf">
+              <ul>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>外科学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>外科学系</a> </li>
+              </ul>
+            </div>
+            
+            <div class="child cf">
+              <ul>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、肾..."><i></i>其他学系</a> </li>
+                <li> <a class="ellipsis" data-src="images/index-img1.jpg" href="#" data-p="开展儿童发育及儿童神经系统疾病，以及累及神经系统的罕见病。如：癫痫、先天遗传代谢疾病、结节性硬化、2..."><i></i>其他学系</a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!----第二板块----->
+    <div class="index_3 cf">
+      <div class="li">
+        <div>
+          <div class="img"> <a href="javascript:void(0);" class="tran_scale"> <img title="1" alt="1" src="images/xw-img1.jpg"> </a> </div>
+        </div>
+        <div class="con">
+          <div class="tit">
+            <h3><a  href="#" class="fr">查看更多</a>医院公告</h3>
+            <ul>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 卫生计生委领导莅临我院检查指导党建工作</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 医院党支部召开发展党员大会北京京</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 卫生计生委领导莅临我院检查指导党建工作</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="li">
+        <div>
+          <div class="img"> <a href="javascript:void(0);" class="tran_scale"> <img title="" alt="" src="images/xw-img2.jpg"> </a> </div>
+        </div>
+        <div class="con">
+          <div class="tit">
+            <h3><a href="/bignews.html" class="fr">查看更多</a>重大新闻</h3>
+            <ul>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 昌平区卫生计生委领导莅临我院检查指导党建工作</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 医院党支部召开发展党员大会北京京</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 昌平区卫生计生委领导莅临我院检查指导党建工作</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="li">
+        <div>
+          <div class="img"> <a href="javascript:void(0);" class="tran_scale"> <img title="" alt="" src="images/xw-img3.jpg"> </a> </div>
+        </div>
+        <div class="con">
+          <div class="tit">
+            <h3><a href="/popular.html" class="fr">查看更多</a>协和医生说</h3>
+            <ul>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 昌平区卫生计生委领导莅临我院检查指导党建工作</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 北京京都儿童医院党支部召开发展党员大会北京京</a></li>
+              <li><a target="_blank" href="#" class="ellipsis">◆ 昌平区卫生计生委领导莅临我院检查指导党建工作</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="index_2 cf">
+      <li class="li_1" edit_params=""><a href="#" target="_blank" class="a">
+        <div class="ico"><img src="images/i-con1.png"></div>
+        <h3>预约挂号</h3>
+        </a></li>
+      <li class="li_2" edit_params=""><a href="#" target="_blank" class="a">
+        <div class="ico"><img src="images/i-con2.png"></div>
+        <h3>出诊信息</h3>
+        </a></li>
+      <li class="li_3" edit_params=""><a href="#" target="_blank" class="a">
+        <div class="ico"><img src="images/i-con3.png"></div>
+        <h3>健康检查</h3>
+        </a></li>
+      <li class="li_4" edit_params=""><a href="#" target="_blank" class="a">
+        <div class="ico"><img src="images/i-con4.png"></div>
+        <h3>专家微博</h3>
+        </a></li>
+    </ul>
+    
+    
+    <!----专家版块---->
+		<div class="index_zj">
+						
+			<div class="ind_zj_cont cf">
+				 <div class="zjclick cf">
+						<a href="javascript:;" class="a1">全部专家<i></i></a>
+	                    <a href="javascript:;" class="a2">内科专家<i></i></a>
+	                    <a href="javascript:;" class="a3">外科专家<i></i></a>
+						<a href="javascript:;" class="a4">其他专家<i></i></a>
+				 </div>
+				
+				<div class="r">
+                     
+                  <div class="img ratio-img">
+					<a href="#" target="_blank" class="tan_scale a">
+						<img src="" alt="">
+					</a>
+				  </div>
+                     
+					
+					<div class="izj-list">
+												<div class="child cf">
+							<ul>
+					<li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳3芳</h3><h4>口腔舒适化中心</h4></a></li>									                    
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳4芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘5芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘6芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘7芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘8芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳9芳</h3><h4>口腔舒适化中心</h4></a></li>							</ul>
+						</div>
+												<div class="child cf">
+							<ul>
+					<li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳3芳</h3><h4>口腔舒适化中心</h4></a></li>									                    
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳4芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘5芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘6芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘7芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘8芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳9芳</h3><h4>口腔舒适化中心</h4></a></li>							</ul>
+						</div>
+												<div class="child cf">
+							<ul>
+					<li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳3芳</h3><h4>口腔舒适化中心</h4></a></li>									                    
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳4芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘5芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘6芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘7芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘8芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳9芳</h3><h4>口腔舒适化中心</h4></a></li>							</ul>
+						</div>
+                        <div class="child cf">
+							<ul>
+					<li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳3芳</h3><h4>口腔舒适化中心</h4></a></li>									                    
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳4芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘5芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘6芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘7芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘8芳芳</h3><h4>口腔舒适化中心</h4></a></li>
+                    <li><a class="ellipsis" data-src="images/zj-img1.jpg" href="#"><img src="images/tx-zj1.jpg"><h3>刘芳9芳</h3><h4>口腔舒适化中心</h4></a></li>							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    
+    
+    
+    <div class="index_6">
+      <h2 class="title_h2">特色诊疗<span>Characteristic diagnosis and treatment</span></h2>
+      <ul class="list cf">
+        <li class="li_1"><a href="#" target="_blank">
+          <img src="images/tszl-img1.jpg">
+          <div class="tit">
+            <h3>眼科<br />
+               发展</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+        <li class="li_2"><a href="#" target="_blank">
+        <img src="images/tszl-img2.jpg">
+          <div class="tit">
+            <h3>口腔舒适化<br />
+              诊疗</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+        <li class="li_1 li_3"><a href="#" target="_blank">
+        <img src="images/tszl-img3.jpg">
+          <div class="tit">
+            <h3>过敏性疾病<br />
+              诊疗</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+        
+        <li class="li_2"><a href="#" target="_blank">
+        <img src="images/tszl-img2.jpg">
+          <div class="tit">
+            <h3>外科<br />
+              诊疗</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+        <li class="li_2"><a href="#" target="_blank">
+        <img src="images/tszl-img2.jpg">
+          <div class="tit">
+            <h3>整形修复及烧创伤<br />
+              诊疗</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+          <li class="li_1"><a href="#" target="_blank">
+        <img src="images/tszl-img4.jpg">
+          <div class="tit">
+            <h3>国际医疗</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+          <li class="li_2"><a href="#" target="_blank">
+        <img src="images/tszl-img2.jpg">
+          <div class="tit">
+            <h3>PICC门诊</h3>
+            <i></i> <span>查看更多</span> </div>
+          </a> </li>
+        <li class="li_1 tran_scale"><a><img title="3" alt="医院图" src="images/tszl-img5.jpg"></a></li>
+      </ul>
+    </div>
+    
+    <div class="index_sp">
+      <h2 class="title_h2">健康直播间<span>Healthy Live Studio</span></h2>
+      <div class="change-content change-box">
+            <div class="change-main">
+                <div class="change-cut flex-row">
+                    <ul class="clearfix">
+                        <li class="sption tab on">精彩推荐</li>
+                        <li class="sption tab">医院新闻</li>
+                        <li class="sption tab" style="border-right:0">其他疾病</li>
+                    </ul>
+                </div>
+                <div class="contents clearfix">
+                    <div class="content flex-row" style="display: block;">
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细胞综合3征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细4胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content flex-row" style="display: none;">
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细5胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血6细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬7血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬8血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content flex-row" style="display: none;">
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬9血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬44血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#"  target="_blank">
+                            <div class="item">
+                                <div class="img-block"><img src="images/sp-img1.jpg" alt=""><i><img src="images/sp-bf.png"></i></div>
+                                <div class="item-block">
+                                    <p class="item-title">我院血液病科噬55血细胞综合征大型</p>
+                                    <p class="item-p">CCTV13《朝闻天下》</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script type="text/javascript">
+            jQuery(".change-main").slide({ titCell:".flex-row li", mainCell:".contents",delayTime:0 });
+        </script>
+    
+  </div>
+</div>
+<script>
+$(function(){
+	$('.ind_banner').slick({
+      dots: true, 
+      autoplay: true,
+      infinite: true,
+      speed: 1000,
+      autoplaySpeed:5000,
+      fade: false,
+      slide: '.index_1',
+      onAfterChange:function(a,idx){
+	      	$('.ind_banner .index_1.slick-active').addClass("on").siblings().removeClass("on");
+      }
+    });
+
+    setTimeout(function(){
+    	if($('.ind_banner .index_1').size()>1){
+    		$('.ind_banner .index_1').eq(1).addClass("on")
+    	}else{
+    		$('.ind_banner .index_1').addClass("on")
+    	}
+    }, 300)
+
+    $(window).scroll(function(){
+		scorllAnimate(".index_2");
+	})
+})
+</script>
+
+<script src="js/index.js"></script>
+<div class="footer">
+  <div class="copy">
+    <div class="wrap cf">
+      <div class="left">
+         <ul class="siteMap">
+         <li><img src="images/db-dh.png">服务热线：<b>010-69787777</b></li> 
+         <li><img src="images/db-wz.png">医院地址：北京市昌平区回龙观东大街308号</li>
+         </ul>
+         <p>Copyright © 2017 京都儿童医院 - 京卫网审[2016]第1927号 - 京ICP备13016643-6 </p>
+      </div>
+      <div class="right">
+        <dl>
+          <dt><img src="images/wx-dyh.jpg" alt=""></dt>
+          <dd>订阅号 [随时咨询]</dd>
+        </dl>
+        <dl>
+          <dt><img src="images/wx-fwh.jpg" alt=""></dt>
+          <dd>服务号 [随时咨询]</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+window.onload = function(){
+	if($(window).width()<1262){
+		anchor();
+		//监听触发操作
+		function hashChangeFire(){
+		    var hh = 10;
+			if($('.header').css("position") === "fixed"){
+				hh = hh+$('.header').height();
+			}
+		    var id = window.location.href.split('#');
+			id = '#'+id[id.length-1];
+			try{
+				$('html,body').animate({scrollTop:$(id).offset().top-hh});
+			}catch (e){
+				console.log(e);
+			}
+		}
+		//url变化监听器
+		if( ('onhashchange' in window) && ((typeof document.documentMode==='undefined') || document.documentMode==8)) {
+		    // 浏览器支持onhashchange事件
+		    window.onhashchange = hashChangeFire;  // TODO，对应新的hash执行的操作函数
+		} else {
+		    // 不支持则用定时器检测的办法
+		    setInterval(function() {
+		        // 检测hash值或其中某一段是否更改的函数， 在低版本的iE浏览器中通过window.location.hash取出的指和其它的浏览器不同，要注意
+		        var ischanged = isHashChanged();
+		        if(ischanged) {
+		            hashChangeFire();  // TODO，对应新的hash执行的操作函数
+		        }
+		    }, 150);
+		}
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+/* COMBO: filename = jquery.cookie.js, type = application/javascript, resp = 200 */
+/*!
+ * jQuery Cookie Plugin v1.4.1
+ * https://github.com/carhartl/jquery-cookie
+ *
+ * Copyright 2013 Klaus Hartl
+ * Released under the MIT license
+ */
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof exports === 'object') {
+		// CommonJS
+		factory(require('jquery'));
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function ($) {
+
+	var pluses = /\+/g;
+
+	function encode(s) {
+		return config.raw ? s : encodeURIComponent(s);
+	}
+
+	function decode(s) {
+		return config.raw ? s : decodeURIComponent(s);
+	}
+
+	function stringifyCookieValue(value) {
+		return encode(config.json ? JSON.stringify(value) : String(value));
+	}
+
+	function parseCookieValue(s) {
+		if (s.indexOf('"') === 0) {
+			// This is a quoted cookie as according to RFC2068, unescape...
+			s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+		}
+
+		try {
+			// Replace server-side written pluses with spaces.
+			// If we can't decode the cookie, ignore it, it's unusable.
+			// If we can't parse the cookie, ignore it, it's unusable.
+			s = decodeURIComponent(s.replace(pluses, ' '));
+			return config.json ? JSON.parse(s) : s;
+		} catch(e) {}
+	}
+
+	function read(s, converter) {
+		var value = config.raw ? s : parseCookieValue(s);
+		return $.isFunction(converter) ? converter(value) : value;
+	}
+
+	var config = $.cookie = function (key, value, options) {
+
+		// Write
+
+		if (value !== undefined && !$.isFunction(value)) {
+			options = $.extend({}, config.defaults, options);
+
+			if (typeof options.expires === 'number') {
+				var days = options.expires, t = options.expires = new Date();
+				t.setTime(+t + days * 864e+5);
+			}
+
+			return (document.cookie = [
+				encode(key), '=', stringifyCookieValue(value),
+				options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+				options.path    ? '; path=' + options.path : '',
+				options.domain  ? '; domain=' + options.domain : '',
+				options.secure  ? '; secure' : ''
+			].join(''));
+		}
+
+		// Read
+
+		var result = key ? undefined : {};
+
+		// To prevent the for loop in the first place assign an empty array
+		// in case there are no cookies at all. Also prevents odd result when
+		// calling $.cookie().
+		var cookies = document.cookie ? document.cookie.split('; ') : [];
+
+		for (var i = 0, l = cookies.length; i < l; i++) {
+			var parts = cookies[i].split('=');
+			var name = decode(parts.shift());
+			var cookie = parts.join('=');
+
+			if (key && key === name) {
+				// If second argument (value) is a function it's a converter...
+				result = read(cookie, value);
+				break;
+			}
+
+			// Prevent storing a cookie that we couldn't decode.
+			if (!key && (cookie = read(cookie)) !== undefined) {
+				result[name] = cookie;
+			}
+		}
+
+		return result;
+	};
+
+	config.defaults = {};
+
+	$.removeCookie = function (key, options) {
+		if ($.cookie(key) === undefined) {
+			return false;
+		}
+
+		// Must not alter options, thus extending a fresh object...
+		$.cookie(key, '', $.extend({}, options, { expires: -1 }));
+		return !$.cookie(key);
+	};
+
+}));
+
+/* COMBO: filename = utils.v1.1.js, type = application/javascript, resp = 200 */
+// GLOBAL Event Emit
+var customEvent = (function () {
+    var events = {}
+    function on(evt, handler) {
+        events[evt] = events[evt] || []
+        events[evt].push({
+            handler: handler
+        })
+    }
+    function trigger(evt, args) {
+        if(!events[evt]) {
+            return
+        }
+        for (var i = 0; i < events[evt].length; i++) {
+            events[evt][i].handler(args)
+        }
+    }
+    return {
+        on: on,
+        trigger: trigger
+    }
+})();
+// COOKIE 的 通用方法
+/*
+* name：  cookieName
+* value:  cookieValue
+* days:   几天 大于0,建议为整数
+* isZero: 是否是零点
+*/
+var SpCusCookie = {
+	setCookie: function (name, value, days, isZero) {
+		var date = new Date(),
+			expires = "",
+			days = Number(days);
+		if (days) {
+			if(isZero) {
+				var curTemp = date.getTime();
+				var curWeekHours = new Date(date.toLocaleDateString()).getTime() - 1;
+				var passedTimeStamp = curTemp - curWeekHours;
+				var leftTimeStamp = 24 * 60 * 60 * 1000 - passedTimeStamp;
+				var leftTime = new Date();
+				if (days < 1) {
+					leftTime.setTime(leftTimeStamp + curTemp + days * 24 * 60 * 60 * 1000);
+				} else {
+					leftTime.setTime(leftTimeStamp + curTemp + (days-1) * 24 * 60 * 60 * 1000);
+				}
+				expires = "; expires="+leftTime.toGMTString();
+			} else {
+				date.setTime(date.getTime()+(days*24*60*60*1000));
+				expires = "; expires="+date.toGMTString();
+			}
+		}
+		document.cookie = name+"="+value+expires+"; path=/";
+	},
+	getCookie: function (name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	},
+	deleteCookie: function (name, domain) {
+		// document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+		var date = new Date();
+		date.setTime(date.getTime()-10000); //删除一个cookie，就是将其过期时间设定为一个过去的时间
+		document.cookie = name + "= ' ' " + "; expires=" + date.toUTCString()+"; path=/"+(domain ? '; domain='+domain : '');
+	}
+}
+// localStorage 的 通用方法
+/*
+* exp:      过期时间戳差值,例如 1560231213-156021194
+* callback: 时间戳过期回调
+*/
+var localhostStorageFn = {
+	set: function (key,value) {
+		var curTime = new Date().getTime();
+		localStorage.setItem(key,JSON.stringify({data:value,time:curTime}));
+	},
+	get: function (key,exp, callback) {
+		var data = localStorage.getItem(key);
+		if (data) {
+				var dataObj = JSON.parse(data);
+				if(!exp) {
+						var dataObjDatatoJson = dataObj.data
+						return dataObjDatatoJson;
+				}
+				if (new Date().getTime() - dataObj.time>exp) {
+						console.log('信息已过期');
+						this.remove(key);
+						callback && callback();
+						// your callbak here
+				}else{
+						var dataObjDatatoJson = dataObj.data
+						return dataObjDatatoJson;
+				}
+		}
+	},
+	remove: function (key) {
+		localStorage.removeItem(key);
+	}
+}
+
+// addEventListen 兼容写法
+var addEvent = function (element, type, handler) {
+	if(element.addEventListener) {
+		addEvent = function (element, type, handler) {
+			element.addEventListener(type, handler, false);
+		};
+	} else if(element.attachEvent) {
+		addEvent = function (element, type, handler) {
+			element.attachEvent('on' + type, handler);
+		};
+	} else {
+		addEvent = function (element, type, handler) {
+			element['on' + type] = handler;
+		};
+	}
+	addEvent(element, type, handler);
+}
+// 阻止默认事件
+function stopDefault(e) {
+	//阻止默认浏览器动作(W3C)
+	if (e && e.preventDefault) {
+		//火狐的 事件是传进来的e
+		e.preventDefault();
+	}
+	//IE中阻止函数器默认动作的方式
+	else {
+		//ie 用的是默认的event
+		event.returnValue = false;
+	}
+}
+// 根据URL地址获取参数
+function getQueryString(name) {
+	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+	var search = window.location.search.split('?')[1] || '';
+	var r = search.match(reg) || [];
+	return r[2];
+}
+// 小于10取整补位0
+function paddingLeftZero(num) {
+	if(num<10) {
+		return '0'+num
+	}else{
+		return num
+	}
+}
+// format: 0 => 2019-04-29
+// 		1 => 2019-04-29 17:09
+// 		2 => 2019-04-29 17:09:37
+//    3 => 2019年04月29日 17:09:37
+function monment(timestamp, format, divide) {
+	var tempDate = new Date(),
+		result = '',
+		divide = divide || '-';
+	if (!timestamp) {
+		timestamp = new Date().getTime();
+	}
+	if (String(timestamp).length == 10) {
+		timestamp = timestamp * 1000;
+	}
+	tempDate.setTime(timestamp);
+	var year = tempDate.getFullYear()
+	var month = paddingLeftZero(tempDate.getMonth() + 1)
+	var day = paddingLeftZero(tempDate.getDate())
+	var hour = paddingLeftZero(tempDate.getHours())
+	var minute = paddingLeftZero(tempDate.getMinutes())
+	var second = paddingLeftZero(tempDate.getSeconds())
+	switch (format) {
+		case 0:
+			result = year+divide+month+divide+day;
+			break;
+		case 1:
+			result = year+divide+month+divide+day+' '+hour+':'+minute;
+			break;
+		case 2:
+			result = year+divide+month+divide+day+' '+hour+':'+minute+':'+second;
+			break;
+		case 3:
+			result = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second;
+			break;
+		case 4:
+			result = year+'.'+month+'.'+day+'  '+hour+':'+minute+':'+second;
+			break;
+	}
+	return result
+}
+// 获取滚动x轴y轴信息
+function getScrollPosition(el) {
+	el = el || window
+	return ({x: (el.pageXOffset !== undefined) ? el.pageXOffset : el.scrollLeft,y: (el.pageYOffset !== undefined) ? el.pageYOffset : el.scrollTop})
+}
+// 节流函数 fn是我们需要包装的事件回调, delay是时间间隔的阈值
+function throttleFn (fn, delay) {
+  // last为上一次触发回调的时间, timer是定时器
+  var last = 0, timer = null
+  // 将throttle处理结果当作函数返回
+  return function () {
+    // 保留调用时的this上下文
+    var context = this
+    // 保留调用时传入的参数
+    var args = arguments
+    // 记录本次触发回调的时间
+    var now = +new Date()
+    // 判断上次触发的时间和本次触发的时间差是否小于时间间隔的阈值
+    if (now - last < delay) {
+    // 如果时间间隔小于我们设定的时间间隔阈值，则为本次触发操作设立一个新的定时器
+       clearTimeout(timer)
+       timer = setTimeout(function () {
+          last = now
+          fn.apply(context, args)
+        }, delay)
+    } else {
+        // 如果时间间隔超出了我们设定的时间间隔阈值，那就不等了，无论如何要反馈给用户一次响应
+        last = now
+        fn.apply(context, args)
+    }
+  }
+}
+/**
+ * @desc 函数防抖
+ * @param func 函数
+ * @param wait 延迟执行毫秒数
+ * @param immediate true 表立即执行，false 表非立即执行
+ */
+function debounce(func,wait,immediate) {
+  var timeout;
+  return function () {
+    var context = this;
+    var args = arguments;
+    if (timeout) clearTimeout(timeout);
+    if (immediate) {
+      var callNow = !timeout;
+      timeout = setTimeout(function () {
+        timeout = null;
+      }, wait)
+      if (callNow) func.apply(context, args)
+    } else {
+      timeout = setTimeout(function(){
+        func.apply(context, args)
+      }, wait);
+    }
+  }
+}
+// 洗牌算法 -- MadeBy SunPing
+function shuffle(arr){
+	var result = [],
+			random;
+	while(arr.length>0){
+			random = Math.floor(Math.random() * arr.length);
+			result.push(arr[random])
+			arr.splice(random, 1)
+	}
+	return result;
+}
+// 秒数转时长
+function secToTIme(sec) {
+	var result = '';
+	if(sec>0) {
+		var min = Math.floor(sec/60) % 60;
+		var second = Math.floor(sec) % 60;
+		var hour = (sec / 3600 >= 1) ? Math.floor(sec / 3600) : '';
+		if (hour) {
+			result = paddingLeftZero(hour) + ':';
+		}
+		result += paddingLeftZero(min)+':'+paddingLeftZero(second);
+	}
+	return result
+}
+
+/**
+ * 将 new Date() 或者时间戳(秒或者 毫秒都可以) 格式化
+ *
+ * @param {*} time new Date() 或者 1590131660 或者 1548221490638
+ * @param {*} cFormat 形如 '{y}年{m}月{d}日 {h}:{i} 周{a}'
+ * @returns @String
+ */
+function parseTimeFn (time, cFormat) {
+  if (arguments.length === 0 || !time) {
+    return null
+  }
+  var format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
+  var date = ''
+  if (typeof time === 'object') {
+    date = time
+  } else {
+    if ((typeof time === 'string')) {
+      if (time.length === 10) { time = time * 1000 }
+      if ((/^[0-9]+$/.test(time))) {
+        time = parseInt(time)
+      } else {
+        time = time.replace(new RegExp(/-/gm), '/')
+      }
+    }
+    if ((typeof time === 'number') && (time.toString().length === 10)) {
+      time = time * 1000
+    }
+    date = new Date(time)
+  }
+  var formatObj = {
+    y: date.getFullYear(),
+    m: date.getMonth() + 1,
+    d: date.getDate(),
+    h: date.getHours(),
+    i: date.getMinutes(),
+    s: date.getSeconds(),
+    a: date.getDay()
+  }
+  var time_str = format.replace(/{([ymdhisa])+}/g, function (result, key) {
+    var value = formatObj[key]
+    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }
+    return paddingLeftZero(value.toString())
+  })
+  return time_str
+}
+
+// TOAST 封装
+(function ($) {
+	$.fn.extend({
+		// toast 插件挂载 jQuery
+		"toast": function (options) {
+			var oHtml = '',
+					oTime = (new Date().getTime());
+			if ( typeof options === "string" ) {
+				if (options) {
+					oHtml = '<div class="toast-custom" oindex="'+oTime+'"><p>'+options+'</p></div>'
+				} else {
+					return false
+				}
+			} else if ( typeof options === "object" ) {
+				oHtml = '<div class="toast-custom" oindex="'+oTime+'">'+(options.icon && "<i class=\"iconfont icon-"+options.icon+"\"></i>")+'<p>'+options.msg+'</p></div>'
+			}
+			$('body').append(oHtml);
+			var fadeout = setTimeout(function () {
+				$('.toast-custom[oindex='+oTime+']').fadeOut()
+				clearTimeout(fadeout);
+			}, 5000);
+		}
+	})
+})(jQuery);
+/*
+    * jsSrc js文件的路径
+    * callback 引入后的回调
+    * id 设置的id
+ */
+function appendJs (jsSrc,callback,id) {
+  var new_element = document.createElement('script');
+  new_element.setAttribute('type', 'text/javascript');
+  new_element.setAttribute('src', jsSrc);
+  new_element.charset = 'UTF-8';
+  if(id){
+    new_element.id = id;
+  };
+  if(typeof callback == 'function'){
+    if (new_element.addEventListener) {
+      new_element.addEventListener('load', function () {
+       callback();
+      }, false);
+     } else if (new_element.attachEvent) {
+      new_element.attachEvent('onreadystatechange', function () {
+       var target = window.event.srcElement;
+       if (target.readyState == 'loaded') {
+        callback();
+       }
+      });
+     }
+  }
+  document.body.appendChild(new_element);
+}

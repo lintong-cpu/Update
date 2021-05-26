@@ -1,0 +1,406 @@
+window.week_sign_count = 1;
+var prefixUrl = '/mall/api';
+// var prefixUrl = 'http://192.168.14.77:9510';
+$(document).ready(function () {
+  window.signScoreArr = [5, 10, 20, 10, 20, 10, 10];
+  if ($('.winpopbg').length == 0) {
+    $('body').append('<div class="winpopbg" style="display: none;"></div>');
+  }
+  if (env.isLogin) {
+    // 是否已签
+    var firstTimeSignObj = SpCusCookie.getCookie('firstTimeSign');
+    if (firstTimeSignObj) {
+      firstTimeSignObj = JSON.parse(firstTimeSignObj);
+      if (firstTimeSignObj['uid'] === CONFIG['uid']) {
+        window.week_sign_count = firstTimeSignObj['data']['week_sign_count']
+        $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').html('<i class="iconfont tubiao icon-ziyuan"></i>已签');
+        $('.sign-media-box > p').length>0 && $('.sign-media-box > p').html('<i class="iconfont icon-ziyuan"></i>已签');
+        $('.fastpass-nav-item').length>0 && $('.fastpass-nav-item:eq(0)').addClass('annual-review-entry').html('<a href="javascript:void(0)"><i></i><p>年度回顾</p></a><div class="annual-code"></div>');
+      }
+    }
+    // 获取积分详情
+    $.ajax({
+      type: "get",
+      url: prefixUrl + "/v1/user_point/"+CONFIG['uid'],
+      dataType: "json",
+      success: function (response) {
+        if (response.status == 1) {
+          // 是否完成了所有新手任务
+          if (!response.info.is_finish_new_task) {
+            $('.newer-task').show();
+            $('.daily-sign .sign-entries a').length > 0 && $('.daily-sign .sign-entries a:eq(1) div').prepend('<em>限时</em>');
+            $('.sign-media-wrap a').length > 0 && $('.sign-media-wrap a:eq(1) div').prepend('<em>限时</em>');
+          } else {
+            $('.jfsc-common-title').length > 0 && $('.jfsc-common-title:eq(1)').hide();
+            ($('.all-tasks-box').length > 0) && $('.all-tasks-box').hide();
+          }
+          $('.jfsc-nav-total span').length > 0 && $('.jfsc-nav-total span').text(response.info.remain_point);
+          $('.product-detail-count span').length > 0 && $('.product-detail-count span').text(response.info.total_point);
+          if ($('.sign-total-drop').length > 0){
+            response.info.remain_point > 0 ? $('.sign-total-drop i').text(response.info.remain_point) : $('.sign-total-drop').hide();
+          }
+          $('.sign-lt-total span').text(response.info.remain_point);
+          window.temp_total_point = response.info.total_point;
+          window.remain_point = response.info.remain_point;
+          window.is_new = response.info.is_new;
+        }
+      }
+    });
+    // 是否有新的积分未领取
+    $.ajax({
+      type: "get",
+      url: prefixUrl + "/v1/user_point/point_reminder/"+CONFIG['uid']+'?page='+globalStatic.newpage,
+      dataType: "json",
+      success: function (response) {
+        if (response.status == 1) {
+          if (response.info.is_reminder == 1) {
+            $('.sign-new-score').html(response.info.remainder_info[0] + '<br><a href="'+response.info.reminder_event+'" target="_blank" data-type="'+response.info.remainder_type+'">'+ response.info.remainder_info[1] +'</a><i class="poa iconfont icon-guanbi"></i>').fadeIn();
+            /*if (response.info.remainder_type == 1) {
+              setTimeout(function () {
+                $('.sign-new-score i').get(0).click();
+              }, 3000);
+            }*/
+          }
+        }
+      }
+    });
+    setTimeout(function () {
+      $('.Rigmidle-part').css('margin-top', $(window).height() / 5);
+    }, 500);
+  } else {
+    $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').html('<em class="poa"></em><i class="iconfont tubiao icon-ziyuan"></i>签到');
+    $('.newer-task').show().css({'animation': 'ewm-tiaodong 5s infinite'});
+    var hasKnowNoLoginCookie = SpCusCookie.getCookie('knowNoLoginCookie');
+    !hasKnowNoLoginCookie && $('.sign-new-score').html('签到积分待领取<br><a class="login-for-sign">我要领取>></a><i class="poa iconfont icon-guanbi"></i>').fadeIn();
+  }
+});
+
+$('body').on('click', '.sign-success-close', function () {
+  var resLeft = $('#pop-daily-sign').offset().left + 200;
+  var resTop = $('#pop-daily-sign').offset().top + 340;
+  $('.sign-success-pop').css({
+    left: resLeft+'px',
+    top: resTop + 'px',
+    transform: 'scale(0)',
+    transition: 'all ease 0.4s'
+  });
+  setTimeout(function () {
+    $('.sign-success-pop').hide().css({
+      'transform': 'scale(1)',
+      left: '0',
+      top: '0',
+    });
+    $('.sign-success-bg').hide();
+    $('.winpopbg').show();
+  }, 500);
+});
+$('body').on('click', '.daily-sign-close', function () {
+  $('#pop-daily-sign').hide();
+  $('.winpopbg').fadeOut();
+});
+$('body').on('click', '.sign-task-item .task-manage button, .sign-task-item .task-manage a', function (e) {
+  if ($(this).hasClass('active')) {
+    e.preventDefault();
+    return
+  }
+  var tempDataId = $(this).parents('li').attr('data-id');
+  if (tempDataId == 1) {
+    location.href.indexOf('?') == -1 ? location.href+'?bindPhone=1' : location.href+'&bindPhone=1'
+  }
+});
+function initTask () {
+  if (window.ajaxTaskInfos) {
+    return
+  }
+  $.ajax({
+    type: "get",
+    url: prefixUrl + "/v1/user_task/"+(CONFIG['uid'] || 0),
+    dataType: "json",
+    success: function (response) {
+      if (response.status == 1) {
+        window.ajaxTaskInfos = response.list
+        var oTaskHtml = '';
+        for (var i in response.list) {
+          if (i == 6 || i == 7) {
+            var tempInfoPop = response.list[i]
+            var isFinishPop = tempInfoPop.is_finish == 1 ? 'active' : '';
+            oTaskHtml += '<li class="por" data-id="'+tempInfoPop.id+'">'+
+                  '<p>'+tempInfoPop.task_name+'<span>'+(i == 6 ? "最高+20积分"  : "+"+tempInfoPop.task_point+"积分")+'</span></p>'+
+                  '<div class="poa task-manage">'+
+                    (tempInfoPop.task_link == "" ? ("<button class="+isFinishPop+">"+(tempInfoPop.is_finish == 1 ? "已完成" : "去完成")+"</button>") : ("<a class='"+isFinishPop+"' href='//699pic.com"+tempInfoPop.task_link+"' target='_blank'>"+(tempInfoPop.is_finish == 1 ? "已完成" : "去完成")+"</a>"))+
+                  '</div>'+
+                '</li>';
+          }
+        }
+        $('.task-daily ul').html(oTaskHtml);
+        $('.sign-task-item li[data-id="6"] button').text('已完成').addClass('active');
+        handleSignPopDownLink();
+      }
+    }
+  });
+}
+$('body').on('click', '.daily-sign .sign-entries a', function () {
+  if ($(this).hasClass('sign-direct')) {
+    window.signDirectClick = true;
+    $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').get(0).click();
+  }
+});
+$('body').on('click', '.sign-media-wrap a', function () {
+  if ($(this).hasClass('sign-direct')) {
+    window.signDirectClick = true;
+    $('.sign-media-box > p').get(0).click();
+  }
+});
+function includesArr () {
+  var resultLink = '';
+  var videoArrTypes = ['media:index', 'videosearch:index', 'videoalbum:detail', 'videodetail:index', 'media:search', 'media:mediadetail', 'vip:videoVip', 'video:vipinfo'];
+  var musicArrTypes = ['music:index', 'music:search', 'music:search_sound', 'music:detail', 'music:soundeffectdetail', 'music:vipperson', 'music:vipcompany'];
+  var fontArrTypes = ['ziti:list', 'ziti:detail', 'vip:companyintro'];
+  $.each(videoArrTypes, function (index, value) {
+    if (value === globalStatic.newpage) {
+      resultLink = '//699pic.com/video/';
+    }
+  });
+  $.each(musicArrTypes, function (index, value) {
+    if (value === globalStatic.newpage) {
+      resultLink = '//699pic.com/music/so.html';
+    }
+  });
+  $.each(fontArrTypes, function (index, value) {
+    if (value === globalStatic.newpage) {
+      resultLink = '//699pic.com/ziti/list.html';
+    }
+  });
+  if (!resultLink) {
+    resultLink = '//699pic.com/tupian/so.html'
+  }
+  return resultLink;
+}
+function handleSignPopDownLink() {
+  var resultLink = includesArr();
+  $('.sign-task-item.task-daily li:eq(1) a').attr('href', resultLink);
+}
+
+
+// 签到被点击
+$('body').on('click', '.daily-sign-wrap > a, .sign-media-box > p, .logo-media, .sign-current-btn', function () {
+  if (!env.isLogin) {
+    env.login()
+    return
+  }
+  $('#pop-daily-sign').show();
+  $('.winpopbg').fadeIn();
+  initTask();
+  var firstTimeSignObj = SpCusCookie.getCookie('firstTimeSign');
+  if (!firstTimeSignObj) {
+    gotoSign();
+  } else {
+    firstTimeSignObj = JSON.parse(firstTimeSignObj);
+    if (firstTimeSignObj['uid'] === CONFIG['uid']) {
+      $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').html('<i class="iconfont tubiao icon-ziyuan"></i>已签');
+      $('.sign-media-box > p').length>0 && $('.sign-media-box > p').html('<i class="iconfont icon-ziyuan"></i>已签');
+      $('.fastpass-nav-item').length>0 && $('.fastpass-nav-item:eq(0)').addClass('go-jfsc-link').html('<a href="/mall/index.html?click_type=775" target="_blank"><i></i><p>积分商城</p></a>');
+      $('.sign-lt-title').html('您今日已签到,获得 <span>' + firstTimeSignObj['data']['sign_point'] + '</span> 积分');
+      $('.sign-lt-total span').text(window.remain_point);
+      $('.sign-lt-btn span').text(firstTimeSignObj['data']['week_sign_count']);
+      window.week_sign_count = firstTimeSignObj['data']['week_sign_count']
+      $.each($('.week-item-box'), function (index, value) {
+        if (index < firstTimeSignObj['data']['week_sign_count']) {
+          $(value).addClass('active');
+          $(value).find('.active-tips').show();
+        }
+      });
+      $('.week-item-box:eq('+week_sign_count+')').prev('p').text('明日').addClass('tomorrow-active');
+    } else {
+      gotoSign();
+    }
+  }
+});
+
+function gotoSign () {
+  $.ajax({
+    type: "post",
+    url: prefixUrl + "/v1/point_task/daily_sign",
+    data: {uid: CONFIG['uid']},
+    success: function (response) {
+      if (response.status == 1) {
+        $('.winpopbg').hide();
+        $('.sign-success-bg').fadeIn();
+        $('.sign-success-pop').show();
+        $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').html('<i class="iconfont tubiao icon-ziyuan"></i>已签');
+        $('.fastpass-nav-item').length>0 && $('.fastpass-nav-item:eq(0)').addClass('go-jfsc-link').html('<a href="/mall/index.html?click_type=775" target="_blank"><i></i><p>积分商城</p></a>');
+        $('.sign-media-box > p').length>0 && $('.sign-media-box > p').html('<i class="iconfont icon-ziyuan"></i>已签');
+        $('.sign-success-tomorrow span').text(response.info.next_date_point);
+        setTimeout(function () {
+          $('.sign-success-close').get(0).click();
+        }, 1000);
+      }
+      $('.sign-success-current span').text(response.info.sign_point);
+      $('.sign-lt-title span').text(response.info.sign_point);
+      var tempTotal = Number($('.sign-lt-total span').text()) + response.info.sign_point;
+      $('.sign-lt-title').html('恭喜签到成功，获得 <span>'+response.info.sign_point+'</span> 积分');
+      $('.sign-lt-total span').text(tempTotal);
+      window.temp_total_point += response.info.sign_point;
+      $('.sign-lt-btn span').text(response.info.week_sign_count);
+      $.each($('.week-item-box'), function (index, value) {
+        if (index < response.info.week_sign_count) {
+          $(value).addClass('active');
+          $(value).find('.active-tips').show();
+        }
+      });
+      var tempData = {
+        week_sign_count: response.info.week_sign_count,
+        sign_point: response.info.sign_point
+      }
+      window.week_sign_count = response.info.week_sign_count;
+      $('.week-item-box:eq('+week_sign_count+')').prev('p').text('明日').addClass('tomorrow-active')
+      SpCusCookie.setCookie('firstTimeSign', JSON.stringify({uid: CONFIG['uid'], data: tempData}), 1, 1);
+    }
+  });
+};
+// 已经知道有新的积分了
+$('body').on('click', '.sign-new-score i,.sign-new-score a', function (e) {
+  $('.sign-new-score').fadeOut();
+  var oType = $('.sign-new-score a').attr('data-type') || 0;
+  if ($('.sign-new-score a').hasClass('login-for-sign')) {
+    if ($(this).get(0).tagName.toLocaleLowerCase() == 'a') {
+      env.login();
+    } else {
+      SpCusCookie.setCookie('knowNoLoginCookie', 1, 1, 1);
+    }
+    return
+  }
+  if (oType == 2) {
+    e.preventDefault();
+    if ($(this).get(0).tagName.toLocaleLowerCase() == 'a') {
+      window.loginForSignClick = true;
+      $('.daily-sign-wrap > a').length>0 && $('.daily-sign-wrap > a').get(0).click();
+      $('.sign-media-box > p').length>0 && $('.sign-media-box > p').get(0).click();
+    }
+  }
+  $.ajax({
+    type: "get",
+    url: prefixUrl + "/v1/user_point/over_reminder/"+CONFIG['uid'],
+    dataType: "json",
+    data: {
+      type: oType
+    },
+    success: function (response) {}
+  });
+});
+$(window).resize(function () {
+  setTimeout(function () {
+    $('.Rigmidle-part').css('margin-top', $(window).height() / 5);
+  }, 500)
+});
+
+/* 签到弹窗-积分兑换内容配置 */
+$.ajax({
+  type: 'get',
+  url: prefixUrl + '/v1/goods_index_pop',
+  data: {},
+  success: function(res){
+    if (res.status == 1) {
+      renderJfdh(res.list);
+    } else {
+      // $('body').toast(res.message);
+    }
+  }
+});
+function renderJfdh(data) {
+  var oHtml = '';
+  $.each(data, function (index, value) {
+    var labelText = value.is_label ? '<em class="poa">'+(value.label_type.replace('/', ''))+'</em>' : '';
+    oHtml += '<li class="por" data-id="'+value.id+'"><p>'+value.name+'<span>'+(value.need_point+"积分")+(value.need_money == "0.00" ? "" : "+¥"+value.need_money )+'<em>'+value.display_value+'</em></span></p><div class="poa task-manage"><a class="por" target="_blank" href="//699pic.com/mall/'+value.id+'.html?click_type=771">去兑换'+labelText+'</a></div></li>';
+  });
+  $('.task-jfdh ul').html(oHtml);
+}
+var uniqid = SpCusCookie.getCookie('user_uniqid');
+if (!uniqid) {
+  var uniqid = genID(16);
+  SpCusCookie.setCookie('user_uniqid', uniqid, 365, 1);
+}
+// 积分商城点击签到 埋点统计
+// @position 如下
+// 101 首页banner下方 | 102 右侧边栏 | 103 右侧边栏展开的每日签到 | 104 积分商品详情页每日签到
+// 111 右侧气泡签到  | 112 右侧气泡下载  | 113 右侧未签到气泡关闭  | 114 右侧未下载气泡关闭
+// 121 任务中心签到任务 | 122 任务中心下载任务 | 131 签到弹窗下载任务
+function jfscStaticClick(position) {
+  var tempData = {
+    uid: globalStatic.uid,
+    ip: globalStatic.ip,
+    uniqid: uniqid,
+    vips: static_vip_type,
+    new_page: globalStatic.newpage,
+    position: position,
+    url: location.href,
+    refer: document.referrer,
+    refer_page: globalStatic.referer_page,
+    is_new: is_new // ''为老用户 '1'为新用户
+  }
+  $.ajax({
+    type: 'get',
+    url: '//ajax.699pic.com/?c=AjaxPublicNew&a=pointsMallClick',
+    data: tempData,
+    success: function(res){}
+  });
+}
+$('body').on('click', '.fastpass-nav-item:eq(0):not(".go-jfsc-link")', function () {
+  jfscStaticClick(101);
+});
+$('body').on('click', '.daily-sign-wrap > a, .sign-media-box > p', function () {
+  if (!window.isFromJFSCDetailClick && !window.taskPageSignClick && !window.loginForSignClick && !window.signDirectClick) {
+    jfscStaticClick(102);
+    window.isFromJFSCDetailClick = false;
+    window.loginForSignClick = false;
+    window.taskPageSignClic = false;
+    window.signDirectClick = false;
+  }
+});
+$('body').on('click', '.daily-sign .sign-entries .sign-direct, .sign-media-wrap .sign-direct', function () {
+  window.signDirectClick = true;
+  jfscStaticClick(103);
+});
+$('body').on('click', '.sign-new-score a', function () {
+  var oType = $('.sign-new-score a').attr('data-type') || 0;
+  if (oType == 3) {
+    jfscStaticClick(112);
+  } else if (oType == 2) {
+    window.loginForSignClick = true;
+    jfscStaticClick(111);
+  }
+});
+$('body').on('click', '.sign-new-score i', function () {
+  var oType = $('.sign-new-score a').attr('data-type') || 0;
+  if (oType == 3) {
+    jfscStaticClick(114);
+  } else if (oType == 2) {
+    jfscStaticClick(113);
+  }
+});
+$('body').on('click', '.task-item-manage button, .task-item-manage a', function () {
+  var oId = $(this).parents('.task-item').attr('data-id');
+  if ($(this).hasClass('active')) {
+    return
+  }
+  if (oId == '6') {
+    window.taskPageSignClick = true;
+    jfscStaticClick(121);
+  } else if (oId == '7') {
+    jfscStaticClick(122);
+  } else if (oId == '1') {
+    jfscStaticClick(141);
+  } else if (oId == '2') {
+    jfscStaticClick(151);
+  }
+});
+$('body').on('click', '.sign-task-item li a', function () {
+  var oId = $(this).parent('li').attr('data-id');
+  if (oId == '7') {
+    jfscStaticClick(131);
+  }
+});
+
+$('body').on('click', '.sign-task-item.task-daily li:eq(1) a', function () {
+  jfscStaticClick(131);
+});

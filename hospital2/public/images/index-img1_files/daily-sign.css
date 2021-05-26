@@ -1,0 +1,66 @@
+
+.sign-success-bg {left: 0;top: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.3);z-index: 101;}
+.sign-success-pop {width:260px;height:200px;background:#ffffff;border-radius:10px;margin-left: -130px;margin-top: -100px;left: 50%;top: 50%;z-index: 102;box-sizing: border-box;text-align: center;padding-top: 30px;}
+.sign-success-title {color: #FF5E4B;font-size: 24px;height: 24px;line-height: 24px;margin-bottom: 12px;font-weight: bold;}
+.sign-success-icon {background: url(//static.699pic.com/v2.0/fix/v2.4/jfsc/score.png) no-repeat;width: 81px;height: 66px;display: inline-block;margin: 0 auto 10px;}
+.sign-success-pop .sign-success-tips {color: #666666;font-size:14px;line-height: 16px;}
+.sign-success-pop .sign-success-tips span {color: #FF5E4B;}
+.sign-success-close {width: 42px;height: 42px;box-sizing: border-box;line-height: 42px;text-align: center;font-size: 14px;color: #999999;cursor: pointer;user-select: none;right: 0;top: 0;opacity:1;}
+#pop-daily-sign {width:840px;height:500px;background:#F0F0F0;border-radius:10px;position: fixed;left: 50%;top: 50%;margin-left: -420px;margin-top: -250px;z-index: 101;}
+.daily-sign-close {width: 25px;height: 25px;border-radius: 50%;border: 2px solid #ffffff;box-sizing: border-box;line-height: 21px;text-align: center;right: 23px;top: -40px;cursor: pointer;}
+.daily-sign-close::after {content: '';width: 1px;height: 15px;display: block;position: absolute;right: 10px;bottom: -16px;background: #ffffff;}
+.daily-sign-close i {font-size: 12px;color: #ffffff;}
+
+.daily-sign-l {width:420px;background: #ffffff;border-radius: 10px 0 0 10px;}
+.daily-sign-lt {height:217px;background: url(//static.699pic.com/v2.0/fix/v2.4/jfsc/pop-sign-banner.png) no-repeat;box-sizing: border-box;padding-top: 44px;text-align: center;}
+.sign-lt-title {height:26px;font-size:23px;line-height: 26px;color: #000000;margin-bottom: 28px;}
+.sign-lt-title span {color: #FF5E4B;font-size: 32px;vertical-align: -2px;}
+.sign-lt-total {font-size: 14px;height: 14px;line-height: 14px;color: #333333;margin-bottom: 10px;}
+.sign-lt-btn {width:140px;height:30px;background: #ffffff;border-radius:15px;line-height: 30px;font-size:14px;color: #333333;cursor: pointer;}
+.sign-lt-btn span {color: #FF5E4B;}
+
+.daily-sign-lb {height: 283px;box-sizing: border-box;padding-top: 22px;}
+.daily-sign-lb > div {margin-bottom: 24px;box-sizing: border-box;padding: 0 48px;}
+.week-item {width: 66px;height: 90px;text-align: center;margin-right: 20px;}
+.week-item > p {height:14px;font-size:14px;line-height: 14px;color: #333333;margin-bottom: 10px;}
+.week-item > p.tomorrow-active {color: #ff5e4b;font-size: 16px;}
+.week-item-box {height:66px;background:#F0F0F0;border-radius:6px;box-sizing: border-box;padding-top: 15px;overflow: hidden;}
+.week-item-box.active {background: #FFCB41;}
+.week-item-box.recommend-item::before {content: '';width: 40px;height: 40px;position: absolute;left: 0;top: 0;background: url(//static.699pic.com/v2.0/fix/v2.4/jfsc/sprit.png) no-repeat;background-size: 908px 293px;background-position: -88px -11px;}
+.week-item-box span {width:27px;height:23px;background: url(//static.699pic.com/v2.0/fix/v2.4/jfsc/sprit.png) no-repeat;background-size: 908px 293px;background-position: -7px -11px;margin-bottom: 6px;}
+.week-item-box p {height:14px;font-size:12px;line-height: 14px;color: #FF5E4B;}
+.week-item-box .active-tips {display: none;}
+.week-item-box .active-tips::after {content: '';display: block;width: 100%;height: 100%;position: absolute;left: 0;top: 0;background: rgba(0,0,0,0.6);}
+.week-item-box .active-tips i {color: #20c420;font-size: 18px;position: absolute;left: 0;top: 0;display: block;height: 100%;width: 100%;z-index: 2;line-height: 66px;}
+.week-item.big-week {width: 152px;}
+.week-item.big-week .week-item-box {width: 152px;}
+.week-item.big-week .week-item-box::before {width: 54px;height: 53px;background-position: -134px -11px;}
+.sign-lt-tips {height:12px;font-size:12px;color: #999999;text-align: center;}
+.week-item-box.recommend-item span {background-position-x: -44px;}
+
+.daily-sign-r {box-sizing: border-box;padding-right: 10px;padding-top: 10px;}
+.sign-task-item {width:400px;height:190px;background: #ffffff;;border-radius:6px;margin-bottom: 10px;}
+.sign-task-top {height: 50px;line-height: 50px;border-bottom: 1px solid #F0F0F0;box-sizing: border-box;}
+.sign-task-top p {font-size:16px;color: #333333;}
+.sign-task-top p i {width:4px;height:14px;background: #FFCB41;border-radius: 2px;margin-top: 18px;margin-left: 20px;margin-right: 6px;}
+.sign-task-top a {font-size:12px;color: #666666;cursor: pointer;margin-right: 20px;}
+.sign-task-item ul {width: 100%;height: 139px;overflow-y: auto;box-sizing: border-box;padding-left: 20px;}
+.sign-task-item ul::-webkit-scrollbar,.sign-task-item ul::-webkit-scrollbar {display: none;}
+.sign-task-item li {height: 59px;box-sizing: border-box;border-bottom: 1px solid #F0F0F0;}
+.sign-task-item li p {line-height: 58px;font-size: 14px;color: #333333;}
+.sign-task-item li p span {font-size: 12px;color: #FF5E4B;margin-left: 9px;}
+.sign-task-item li div {width: 80px;height: 30px;right: 21px;top: 14px;}
+.sign-task-item .task-manage button, .sign-task-item .task-manage a {cursor: pointer;background: #2CAEFF;color: #ffffff;font-size: 12px;text-align: center;line-height: 30px;border: 0;outline: none;border-radius: 15px;display: block;width: 100%;height: 100%;}
+.sign-task-item .task-manage button:hover , .sign-task-item .task-manage a:hover {background: #1d97e2;}
+.sign-task-item .task-manage button.active , .sign-task-item .task-manage a.active {background: #D7D7D9;color: #ffffff;cursor: default;}
+
+.sign-task-item.task-jfdh {height: 280px;}
+.sign-task-item.task-jfdh ul {height: 229px;}
+.sign-task-item.task-jfdh li {height: 69px;}
+.sign-task-item.task-jfdh li p {line-height: 14px;margin-top: 18px;float: left;}
+.sign-task-item.task-jfdh li p span {line-height: 14px;margin-top: 8px;margin-left: 0;display: block;}
+.sign-task-item.task-jfdh li div {top: 20px;}
+
+/* 补充UI */
+.sign-task-item .task-manage a em {width: 116px;height: 32px;line-height: 32px;left: -18px;top: -20px;display: block;font-style: normal;background: #FF3800;font-size: 22px;color: #FFFFFF;transform: scale(0.5);border-radius: 0 12px;}
+.sign-task-item li p span em {font-size: 12px;color: #999999;font-style: normal;margin-left: 10px;text-decoration: line-through;}
